@@ -20,7 +20,7 @@ const Navbar = () => {
           <li className="hover:text-gray-300 cursor-pointer"><Link to="/">About</Link></li>
           <li className="hover:text-gray-300 cursor-pointer"><Link to="/">Contact</Link></li>
           <li className="hover:text-gray-300 cursor-pointer"><Link to="/">TV</Link></li>
-          <li className="hover:text-gray-300 cursor-pointer"><Link to="/">Login</Link></li>
+          <li className="hover:text-gray-300 cursor-pointer"><Link to="/login">Login</Link></li>
 
         </ul>
 
@@ -71,7 +71,7 @@ const Navbar = () => {
             <li onClick={() => setOpen(false)}><Link to="/">About</Link></li>
             <li onClick={() => setOpen(false)}><Link to="/">Contact</Link></li>
             <li onClick={() => setOpen(false)}><Link to="/">TV</Link></li>
-            <li onClick={() => setOpen(false)}><Link to="/">Login</Link></li>
+            <li onClick={() => setOpen(false)}><Link to="/login">Login</Link></li>
           </ul>
         </div>
       )}
