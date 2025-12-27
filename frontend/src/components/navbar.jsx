@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -15,10 +16,12 @@ const Navbar = () => {
 
         {/* Nav Links (Desktop) */}
         <ul className="hidden md:flex gap-8 text-white text-sm">
-          <li className="hover:text-gray-300 cursor-pointer">Home</li>
-          <li className="hover:text-gray-300 cursor-pointer">About</li>
-          <li className="hover:text-gray-300 cursor-pointer">Projects</li>
-          <li className="hover:text-gray-300 cursor-pointer">Contact</li>
+          <li className="hover:text-gray-300 cursor-pointer"><Link to="/">Home</Link></li>
+          <li className="hover:text-gray-300 cursor-pointer"><Link to="/">About</Link></li>
+          <li className="hover:text-gray-300 cursor-pointer"><Link to="/">Contact</Link></li>
+          <li className="hover:text-gray-300 cursor-pointer"><Link to="/">TV</Link></li>
+          <li className="hover:text-gray-300 cursor-pointer"><Link to="/">Login</Link></li>
+
         </ul>
 
         {/* Right Side */}
@@ -64,10 +67,11 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden bg-black/80 backdrop-blur-lg">
           <ul className="flex flex-col items-center gap-6 py-6 text-white">
-            <li onClick={() => setOpen(false)}>Home</li>
-            <li onClick={() => setOpen(false)}>About</li>
-            <li onClick={() => setOpen(false)}>Projects</li>
-            <li onClick={() => setOpen(false)}>Contact</li>
+            <li onClick={() => setOpen(false)}><Link to="/">Home</Link></li>
+            <li onClick={() => setOpen(false)}><Link to="/">About</Link></li>
+            <li onClick={() => setOpen(false)}><Link to="/">Contact</Link></li>
+            <li onClick={() => setOpen(false)}><Link to="/">TV</Link></li>
+            <li onClick={() => setOpen(false)}><Link to="/">Login</Link></li>
           </ul>
         </div>
       )}
