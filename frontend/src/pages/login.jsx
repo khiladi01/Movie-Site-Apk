@@ -7,8 +7,46 @@ import {
   Divider,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    if (!email || !password) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:5000/api/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+
+      const data = await response.json();
+      console.log("POST Response Data:", data);
+
+      if (response.ok) {
+        alert("Login successful!");
+      } else {
+        alert(data.message || "Login failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Login POST error:", error);
+      alert("An error occurred. Please try again later.");
+    }
+  };
+
   return (
     <Box
       sx={{
@@ -51,12 +89,14 @@ const Login = () => {
         </Typography>
 
         {/* Form */}
-        <Box component="form">
+        <Box component="form" onSubmit={handleLogin}>
           <TextField
             fullWidth
             label="Email"
             type="email"
             margin="normal"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             InputLabelProps={{ style: { color: "#aaa" } }}
             InputProps={{ style: { color: "#fff" } }}
           />
@@ -66,6 +106,8 @@ const Login = () => {
             label="Password"
             type="password"
             margin="normal"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             InputLabelProps={{ style: { color: "#aaa" } }}
             InputProps={{ style: { color: "#fff" } }}
           />
@@ -74,6 +116,7 @@ const Login = () => {
             fullWidth
             variant="contained"
             size="large"
+            type="submit"
             sx={{
               mt: 3,
               py: 1.2,
