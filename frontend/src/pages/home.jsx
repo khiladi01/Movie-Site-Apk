@@ -15,8 +15,8 @@ function Home() {
         });
 
         const data = await response.json();
-        setMovies(data); // Correct state update
-        console.log(data);
+        setMovies(data); 
+        console.log("Api Data:" , data , Array.isArray(data));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -90,17 +90,19 @@ function Home() {
       </div>
 
       {/* movie section */}
-      <div className="relative h-screen w-full overflow-hidden">
-        {movies.map((item, index) => (
-          <div key={index} className="p-8 text-white">
-            <h2 className="text-3xl font-bold mb-4">Movie: {item.title}</h2>
-            <p className="mb-2">Description: {item.description}</p>
-            <p className="mb-2">Rating: {item.rating}</p>
-            <p className="mb-2">Release Date: {item.releaseDate}</p>
-            <p className="mb-2">Duration: {item.duration}</p>
-            <p className="mb-2">Poster: {item.poster}</p>
-          </div>
-        ))}
+      <div className="relative w-full p-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {movies.map((movie, index) => (
+            <div key={movie.id || index} className="bg-gray-800 p-4 rounded-lg text-white hover:scale-110 transition-transform duration-800 cursor-pointer">
+              <h2 className="text-xl font-bold mb-2">{movie.title}</h2>
+              <p className="text-sm mb-1">Description: {movie.description}</p>
+              <p className="text-sm mb-1">Rating: {movie.rating}</p>
+              <p className="text-sm mb-1">Release Date: {movie.releaseDate}</p>
+              <p className="text-sm mb-1">Duration: {movie.duration}</p>
+              <img src={movie.poster} alt={movie.title} className="w-full h-auto rounded mt-2" />
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );

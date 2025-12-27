@@ -13,7 +13,7 @@ export const protect = async (req, res, next) => {
     }
 
     if (!token) {
-      return res.status(401).json({ message: "Not authorized" });
+      return res.status(401).json({ success:false , message: "Admin access only" });
     }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
