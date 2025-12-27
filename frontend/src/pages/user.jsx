@@ -30,17 +30,11 @@ function Home() {
       {/* hero section */}
       <div className="relative h-screen w-full overflow-hidden">
         {/* Background Video */}
-        <video
-          className="absolute top-0 left-0 h-full w-full object-cover"
-          src="clip.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
+          
+          <img src="/movie.jpg" alt="image" className="absolute top-0 left-0 h-full w-full object-cover" />
 
         {/* Dark background */}
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
 
         {/* Overlay Content */}
         <div className="relative z-10 flex h-full items-center justify-center px-6">
