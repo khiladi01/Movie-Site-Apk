@@ -13,16 +13,24 @@ export const protect = async (req, res, next) => {
     }
 
     if (!token) {
-      return res.status(401).json({ success:false , message: "Admin access only" });
+      return res.status(401).json({ success: false, message: "No token provided" });
     }
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    try {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      req.user = await User.findById(decoded.id).select("-password");
 
-    req.user = await User.findById(decoded.id).select("-password");
+      if (!req.user) {
+        return res.status(404).json({ success: false, message: "User not found" });
+      }
 
-    next();
+      next();
+    } catch (error) {
+      return res.status(401).json({ success: false, message: "Invalid token" });
+    }
   } catch (error) {
-    res.status(401).json({ message: "Token failed" });
+    console.error("Authentication middleware error:", error);
+    res.status(500).json({ success: false, message: "Server error" });
   }
 };
 

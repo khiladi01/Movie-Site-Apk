@@ -6,12 +6,13 @@ import {
   Paper,
   Divider,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -38,6 +39,21 @@ const Login = () => {
 
       if (response.ok) {
         alert("Login successful!");
+        localStorage.setItem("token", data.token);
+
+        // Debugging log for role
+        console.log("User role:", data.role);
+
+        // Navigate based on role
+        if (data.role === "admin") {
+          console.log("Navigating to /admin");
+          navigate("/admin");
+        } else if (data.role === "user") {
+          console.log("Navigating to /user");
+          navigate("/user");
+        } else {
+          alert("Unknown role. Please contact support.");
+        }
       } else {
         alert(data.message || "Login failed. Please try again.");
       }

@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -9,6 +10,49 @@ import {
 import { Link } from "react-router-dom";
 
 const Register = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
+    if (!name || !email || !password || !role) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:5000/api/users/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+          role,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("User Registration Successful!");
+        setName("");
+        setEmail("");
+        setPassword("");
+        setRole("");
+      } else {
+        alert(data.message || "Registration failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Registration POST error:", error);
+      alert("An error occurred. Please try again later.");
+    }
+  };
 
   return (
     <Box
@@ -52,11 +96,14 @@ const Register = () => {
         </Typography>
 
         {/* Form */}
-        <Box component="form">
+        <Box component="form" onSubmit={handleRegister}>
           <TextField
             fullWidth
-            label="Full Name"
+            label="Name"
+            type="text"
             margin="normal"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             InputLabelProps={{ style: { color: "#aaa" } }}
             InputProps={{ style: { color: "#fff" } }}
           />
@@ -66,6 +113,8 @@ const Register = () => {
             label="Email"
             type="email"
             margin="normal"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             InputLabelProps={{ style: { color: "#aaa" } }}
             InputProps={{ style: { color: "#fff" } }}
           />
@@ -75,6 +124,8 @@ const Register = () => {
             label="Password"
             type="password"
             margin="normal"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             InputLabelProps={{ style: { color: "#aaa" } }}
             InputProps={{ style: { color: "#fff" } }}
           />
@@ -84,6 +135,8 @@ const Register = () => {
             label="Role"
             type="text"
             margin="normal"
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
             InputLabelProps={{ style: { color: "#aaa" } }}
             InputProps={{ style: { color: "#fff" } }}
           />
@@ -92,6 +145,7 @@ const Register = () => {
             fullWidth
             variant="contained"
             size="large"
+            type="submit"
             sx={{
               mt: 3,
               py: 1.2,

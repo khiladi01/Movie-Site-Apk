@@ -1,7 +1,7 @@
 import { Button, Typography, Box, Stack } from "@mui/material";
 import { useState, useEffect } from "react";
 
-function Home() {
+function User() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -102,4 +102,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default User;
