@@ -9,26 +9,26 @@ import imgfour from "../assets/image/rajasaab.webp";
 function User() {
   const [movies, setMovies] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("http://localhost:5000/api/movies", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await fetch("https://cineflow-backend.onrender.com/api/movies", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-        const data = await response.json();
-        setMovies(data); 
-        console.log("Api Data:" , data , Array.isArray(data));
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+      const data = await response.json();
+      setMovies(data);
+      console.log("Api Data:", data, Array.isArray(data));
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
-    fetchData();
-  }, []);
+  fetchData();
+}, []);
 
   return (
     <>

@@ -9,8 +9,14 @@ import movieRoutes from "./src/routes/movie.js";
 dotenv.config();
 connectDB();
 
+const corsOptions = {
+  origin: ["https://movie-site-apk.vercel.app"],
+  credentials: true, 
+};
+
 const app = express();
-app.use(cors());
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 app.use("/api/users", authRoutes);
