@@ -1,5 +1,10 @@
-import { Button, Typography, Box, Stack } from "@mui/material";
+import { Button, Typography, Box, Stack, TextField } from "@mui/material";
 import { useState, useEffect } from "react";
+import clip from "../assets/video/tailer.mp4";
+import imgone from "../assets/image/border2.webp";
+import imgtwo from "../assets/image/ramayana.webp";
+import imgthree from "../assets/image/toxic.webp";
+import imgfour from "../assets/image/rajasaab.webp";
 
 function User() {
   const [movies, setMovies] = useState([]);
@@ -98,6 +103,247 @@ function User() {
           ))}
         </div>
       </div>
+
+      {/* tv section */}
+      <div className="relative w-full h-screen p-8 bg-black">
+        <Typography
+          variant="h4"
+          fontWeight="bold"
+          sx={{ mb: 4, color: "white", textAlign: "center" }}
+        >
+          Upcoming Tailer
+        </Typography>
+        <div className="w-full h-full flex justify-center items-center">
+          <div
+            className="w-3/5 h-3/5 flex flex-col justify-center items-center overflow-hidden bg-gray-900 rounded-lg shadow-lg"
+            style={{ border: "10px solid #333", boxShadow: "0 0 20px rgba(0, 0, 0, 0.5)" }}
+          >
+            <video
+              src={clip}
+              autoPlay
+              loop
+              muted
+              className="w-full h-full object-cover rounded-md"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Upcoming section */}
+  <div className="relative w-full p-6 md:p-8 bg-black">
+  <Typography variant="h4" fontWeight="bold" sx={{ mb: 2, color: "white", textAlign: "center" }}>
+    Coming Soon to the Big Screen
+  </Typography>
+  <Typography variant="h4" fontWeight="bold" sx={{ mb: 4, color: "white", textAlign: "center" }}>
+    1/4
+  </Typography>
+
+  <div className="min-h-screen w-full flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-24">
+    {/* image */}
+    <div className="w-full lg:w-[500px] shadow-lg shadow-red-400">
+      <img
+        src={imgone}
+        alt="image"
+        className="w-full h-auto lg:h-[400px] rounded-lg"
+        style={{ border: "10px solid #333", boxShadow: "0 0 20px rgba(0,0,0,0.5)" }}
+      />
+    </div>
+
+    {/* text */}
+    <div className="w-full lg:w-[500px] grid gap-6 text-center lg:text-left">
+      <h1 className="uppercase text-3xl md:text-4xl lg:text-5xl text-white">border 2</h1>
+      <p className="text-base md:text-lg text-white">
+        Decades after the legendary battle, Border 2 returns with a powerful story of modern warfare, brotherhood, and sacrifice. Inspired by real events, the film blends intense action with deep emotion, honoring the bravery of Indian soldiers who stand fearless at the nation’s edge. The legacy continues — louder, stronger, and more personal than ever
+      </p>
+      <div className="flex justify-center lg:justify-start">
+        <Button variant="contained" size="large" sx={{ backgroundColor: "red", color: "#fff", "&:hover": { backgroundColor: "#e5e5e5", color: "#000" } }}>
+          Book Your Tickets Now
+        </Button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{/* ================= 2/4 ================= */}
+
+<div className="relative w-full p-6 md:p-8 bg-black">
+  <Typography variant="h4" fontWeight="bold" sx={{ mb: 4, color: "white", textAlign: "center" }}>
+    2/4
+  </Typography>
+
+  <div className="min-h-screen w-full flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-24">
+    {/* text */}
+    <div className="w-full lg:w-[500px] grid gap-6 text-center lg:text-left">
+      <h1 className="uppercase text-3xl md:text-4xl lg:text-5xl text-white">ramayana</h1>
+      <p className="text-base md:text-lg text-white">
+        Ramayana brings the timeless story of duty, devotion, and righteousness to life on the big screen. Inspired by ancient tradition and presented with modern cinematic visuals, the film follows the journey of Lord Rama, Sita, and Lakshman as they face darkness with courage, faith, and unwavering belief. More than just a film, Ramayana is a powerful retelling of a story that lives in history, culture, and the hearts of millions
+      </p>
+      <div className="flex justify-center lg:justify-start">
+        <Button variant="contained" size="large" sx={{ backgroundColor: "red", color: "#fff", "&:hover": { backgroundColor: "#e5e5e5", color: "#000" } }}>
+          Book Your Tickets Now
+        </Button>
+      </div>
+    </div>
+
+    {/* image */}
+    <div className="w-full lg:w-[500px] shadow-lg shadow-red-400">
+      <img
+        src={imgtwo}
+        alt="image"
+        className="w-full h-auto lg:h-[400px] rounded-lg"
+        style={{ border: "10px solid #333", boxShadow: "0 0 20px rgba(0,0,0,0.5)" }}
+      />
+    </div>
+  </div>
+</div>
+
+{/* ================= 3/4 ================= */}
+
+<div className="relative w-full p-6 md:p-8 bg-black">
+  <Typography variant="h4" fontWeight="bold" sx={{ mb: 4, color: "white", textAlign: "center" }}>
+    3/4
+  </Typography>
+
+  <div className="min-h-screen w-full flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-24">
+    {/* image */}
+    <div className="w-full lg:w-[500px] shadow-lg shadow-red-400">
+      <img
+        src={imgthree}
+        alt="image"
+        className="w-full h-auto lg:h-[400px] rounded-lg"
+        style={{ border: "10px solid #333", boxShadow: "0 0 20px rgba(0,0,0,0.5)" }}
+      />
+    </div>
+
+    {/* text */}
+    <div className="w-full lg:w-[500px] grid gap-6 text-center lg:text-left">
+      <h1 className="uppercase text-3xl md:text-4xl lg:text-5xl text-white">toxic</h1>
+      <p className="text-base md:text-lg text-white">
+        Toxic is a gritty and powerful story that dives into the dark side of ambition, power, and broken relationships. Set in a harsh and unforgiving world, the film follows a man caught in a cycle of violence, obsession, and emotional chaos, where every choice comes at a cost. With raw performances and a tense atmosphere, Toxic promises a bold cinematic experience that explores how far a person can fall when their world turns poisonous
+      </p>
+      <div className="flex justify-center lg:justify-start">
+        <Button variant="contained" size="large" sx={{ backgroundColor: "red", color: "#fff", "&:hover": { backgroundColor: "#e5e5e5", color: "#000" } }}>
+          Book Your Tickets Now
+        </Button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{/* ================= 4/4 ================= */}
+
+<div className="relative w-full p-6 md:p-8 bg-black">
+  <Typography variant="h4" fontWeight="bold" sx={{ mb: 4, color: "white", textAlign: "center" }}>
+    4/4
+  </Typography>
+
+  <div className="min-h-screen w-full flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-24">
+    {/* text */}
+    <div className="w-full lg:w-[500px] grid gap-6 text-center lg:text-left">
+      <h1 className="uppercase text-3xl md:text-4xl lg:text-5xl text-white">the raja saab</h1>
+      <p className="text-base md:text-lg text-white">
+        The Raja Saab is an entertaining mix of romance, comedy, and mystery set against a grand backdrop. The film follows a charming and carefree man whose life takes an unexpected turn when he steps into a world filled with secrets, emotions, and surprising twists. With humor, heart, and a touch of the supernatural, The Raja Saab promises a colorful cinematic ride that blends fun moments with engaging storytelling
+      </p>
+      <div className="flex justify-center lg:justify-start">
+        <Button variant="contained" size="large" sx={{ backgroundColor: "red", color: "#fff", "&:hover": { backgroundColor: "#e5e5e5", color: "#000" } }}>
+          Book Your Tickets Now
+        </Button>
+      </div>
+    </div>
+
+    {/* image */}
+    <div className="w-full lg:w-[500px] shadow-lg shadow-red-400">
+      <img
+        src={imgfour}
+        alt="image"
+        className="w-full h-auto lg:h-[400px] rounded-lg"
+        style={{ border: "10px solid #333", boxShadow: "0 0 20px rgba(0,0,0,0.5)" }}
+      />
+    </div>
+  </div>
+</div>
+
+       {/* connect with us */}
+       <div>
+        <Box
+      sx={{
+        width: "100%",
+        py: { xs: 6, md: 10 },
+        backgroundColor: "#000",
+        display: "flex",
+        justifyContent: "center",
+        px: 2,
+      }}
+    >
+      <Stack
+        spacing={3}
+        sx={{
+          maxWidth: "600px",
+          width: "100%",
+          textAlign: "center",
+        }}
+      >
+        {/* Title */}
+        <Typography
+          variant="h4"
+          fontWeight="bold"
+          sx={{ color: "#fff", letterSpacing: "2px" }}
+        >
+          CONNECT WITH US
+        </Typography>
+
+        {/* Subtitle */}
+        <Typography sx={{ color: "#aaa" }}>
+          Subscribe to get notifications about upcoming movies, trailers, and
+          exclusive updates.
+        </Typography>
+
+        {/* Email + Button */}
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          spacing={2}
+          mt={2}
+        >
+          <TextField
+            fullWidth
+            placeholder="Enter your email"
+            InputProps={{
+              style: { color: "#fff" },
+            }}
+            sx={{
+              backgroundColor: "#111",
+              borderRadius: "6px",
+              "& .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#333",
+              },
+              "&:hover .MuiOutlinedInput-notchedOutline": {
+                borderColor: "red",
+              },
+              "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                borderColor: "red",
+              },
+            }}
+          />
+
+          <Button
+            variant="contained"
+            sx={{
+              px: 4,
+              backgroundColor: "red",
+              fontWeight: "bold",
+              whiteSpace: "nowrap",
+              "&:hover": {
+                backgroundColor: "#e5e5e5",
+                color: "#000",
+              },
+            }}
+          >
+            Subscribe
+          </Button>
+        </Stack>
+      </Stack>
+    </Box>
+       </div>
     </>
   );
 }

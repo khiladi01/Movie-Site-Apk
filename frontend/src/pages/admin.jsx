@@ -107,6 +107,32 @@ function Admin() {
     }
   };
 
+  // ✏️ Update Movie
+  const handleUpdate = async (id, updatedData) => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch(`http://localhost:5000/api/movies/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(updatedData),
+      });
+
+      if (response.ok) {
+        alert("Movie updated successfully!");
+        fetchMovies(); // Refresh the movie list
+      } else {
+        const errorData = await response.json();
+        alert(errorData.message || "Failed to update movie.");
+      }
+    } catch (err) {
+      console.error("Update error:", err);
+      alert("An error occurred while updating the movie.");
+    }
+  };
+
   return (
     <Box sx={{ minHeight: "100vh", backgroundColor: "#0b0b0f", py: 10 }}>
       <Container maxWidth="xl">
@@ -261,13 +287,30 @@ function Admin() {
                     {movie.description}
                   </Typography>
 
-                  <Stack mt={2}>
+                  <Stack mt={2} direction="row" spacing={1}>
                     <Button
                       variant="outlined"
                       color="error"
                       onClick={() => handleDelete(movie._id)}
                     >
                       Delete
+                    </Button>
+                    <Button
+                      variant="outlined"
+                      color="primary"
+                      onClick={() => {
+                        const updatedData = {
+                          title: prompt("Enter new title", movie.title),
+                          description: prompt("Enter new description", movie.description),
+                          rating: prompt("Enter new rating", movie.rating),
+                          releaseDate: prompt("Enter new release date", movie.releaseDate),
+                          duration: prompt("Enter new duration", movie.duration),
+                          poster: prompt("Enter new poster URL", movie.poster),
+                        };
+                        handleUpdate(movie._id, updatedData);
+                      }}
+                    >
+                      Update
                     </Button>
                   </Stack>
                 </CardContent>
