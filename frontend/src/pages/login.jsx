@@ -24,7 +24,7 @@ const Login = () => {
 
     try {
       const response = await fetch(
-        "https://cineflow-backend.onrender.com/api/users/login",
+        "http://localhost:5000/api/users/login",
         {
           method: "POST",
           headers: {

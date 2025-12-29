@@ -13,7 +13,7 @@ function User() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://cineflow-backend.onrender.com/api/movies",
+          "http://localhost:5000/api/movies",
           {
             method: "GET",
             headers: {

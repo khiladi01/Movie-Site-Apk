@@ -9,14 +9,13 @@ import movieRoutes from "./src/routes/movie.js";
 dotenv.config();
 connectDB();
 
-app.use(cors({
-  origin: "https://movie-site-apk.vercel.app",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  credentials: true, 
-}));
-
 const app = express();
-app.use(cors(corsOptions));
+
+app.use(cors({
+  origin: "https://cineflow-ten.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true,
+}));
 
 app.use(express.json());
 
