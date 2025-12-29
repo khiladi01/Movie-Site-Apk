@@ -14,7 +14,7 @@ const Navbar = () => {
         if (!token) return;
 
         const response = await fetch(
-          "http://localhost:5000/profile",
+          "https://cineflow-backend.onrender.com/api/users/profile",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -50,10 +50,18 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <ul className="hidden md:flex gap-8 text-white text-sm items-center">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/">About</Link></li>
-          <li><Link to="/">Contact</Link></li>
-          <li><Link to="/">TV</Link></li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/">About</Link>
+          </li>
+          <li>
+            <Link to="/">Contact</Link>
+          </li>
+          <li>
+            <Link to="/">TV</Link>
+          </li>
 
           {user ? (
             <>
@@ -104,10 +112,18 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden bg-black/80 backdrop-blur-lg">
           <ul className="flex flex-col items-center gap-6 py-6 text-white">
-            <li onClick={() => setOpen(false)}><Link to="/">Home</Link></li>
-            <li onClick={() => setOpen(false)}><Link to="/">About</Link></li>
-            <li onClick={() => setOpen(false)}><Link to="/">Contact</Link></li>
-            <li onClick={() => setOpen(false)}><Link to="/">TV</Link></li>
+            <li onClick={() => setOpen(false)}>
+              <Link to="/">Home</Link>
+            </li>
+            <li onClick={() => setOpen(false)}>
+              <Link to="/">About</Link>
+            </li>
+            <li onClick={() => setOpen(false)}>
+              <Link to="/">Contact</Link>
+            </li>
+            <li onClick={() => setOpen(false)}>
+              <Link to="/">TV</Link>
+            </li>
 
             {user ? (
               <>

@@ -19,7 +19,7 @@ const Profile = () => {
         }
 
         const response = await fetch(
-          "http://localhost:5000/api/users/profile",
+          "https://cineflow-backend.onrender.com/api/users/profile",
           {
             method: "GET",
             headers: {
@@ -69,7 +69,6 @@ const Profile = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center px-4">
       <div className="w-full max-w-md backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-8 shadow-2xl text-white">
-        
         {/* Header */}
         <div className="text-center mb-6">
           <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center text-3xl font-bold shadow-lg">

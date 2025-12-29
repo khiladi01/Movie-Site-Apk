@@ -23,10 +23,12 @@ function Admin() {
     poster: "",
   });
 
-  // 🔁 Fetch Movies
+  // Fetch Movies
   const fetchMovies = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/movies");
+      const res = await fetch(
+        "https://cineflow-backend.onrender.com/api/movies"
+      );
       if (!res.ok) throw new Error("Failed to fetch movies");
       const data = await res.json();
       setMovies(data);
@@ -39,7 +41,7 @@ function Admin() {
     fetchMovies();
   }, []);
 
-  // ✍️ Handle Input
+  // Handle Input
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -53,14 +55,17 @@ function Admin() {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5000/api/movies", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://cineflow-backend.onrender.com/api/movies",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
         alert("Movie added successfully!");
@@ -83,16 +88,19 @@ function Admin() {
     }
   };
 
-  // ❌ Delete Movie
+  // Delete Movie
   const handleDelete = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:5000/api/movies/${id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        `https://cineflow-backend.onrender.com/api/movies/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (response.ok) {
         alert("Movie deleted successfully!");
@@ -107,18 +115,21 @@ function Admin() {
     }
   };
 
-  // ✏️ Update Movie
+  // Update Movie
   const handleUpdate = async (id, updatedData) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`https://cineflow-backend.onrender.com/api/movies/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(updatedData),
-      });
+      const response = await fetch(
+        `https://cineflow-backend.onrender.com/api/movies/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(updatedData),
+        }
+      );
 
       if (response.ok) {
         alert("Movie updated successfully!");
@@ -139,12 +150,18 @@ function Admin() {
         {/* HEADER */}
         <Typography
           variant="h4"
-          sx={{ color: "#fff", fontWeight: 700, mb: 1, letterSpacing: 1, textAlign: "center" }}
+          sx={{
+            color: "#fff",
+            fontWeight: 700,
+            mb: 1,
+            letterSpacing: 1,
+            textAlign: "center",
+          }}
         >
-        CineFlow Admin Dashboard
+          CineFlow Admin Dashboard
         </Typography>
         <Typography sx={{ color: "#9ca3af", mb: 5, textAlign: "center" }}>
-        From frame to feeling Cineflow
+          From frame to feeling Cineflow
         </Typography>
 
         {/* ADD MOVIE FORM */}
@@ -238,11 +255,7 @@ function Admin() {
         </Card>
 
         {/* MOVIE LIST — CENTERED & SPACED */}
-        <Grid
-          container
-          spacing={5}                 
-          justifyContent="center"    
-        >
+        <Grid container spacing={5} justifyContent="center">
           {movies.map((movie) => (
             <Grid
               item
@@ -250,7 +263,7 @@ function Admin() {
               sm={6}
               md={4}
               lg={3}
-              xl={2.5}              
+              xl={2.5}
               key={movie._id}
               sx={{ display: "flex" }}
             >
@@ -265,7 +278,7 @@ function Admin() {
               >
                 <CardMedia
                   component="img"
-                  height="320"        
+                  height="320"
                   image={movie.poster}
                   alt={movie.title}
                 />
@@ -301,10 +314,19 @@ function Admin() {
                       onClick={() => {
                         const updatedData = {
                           title: prompt("Enter new title", movie.title),
-                          description: prompt("Enter new description", movie.description),
+                          description: prompt(
+                            "Enter new description",
+                            movie.description
+                          ),
                           rating: prompt("Enter new rating", movie.rating),
-                          releaseDate: prompt("Enter new release date", movie.releaseDate),
-                          duration: prompt("Enter new duration", movie.duration),
+                          releaseDate: prompt(
+                            "Enter new release date",
+                            movie.releaseDate
+                          ),
+                          duration: prompt(
+                            "Enter new duration",
+                            movie.duration
+                          ),
                           poster: prompt("Enter new poster URL", movie.poster),
                         };
                         handleUpdate(movie._id, updatedData);

@@ -24,18 +24,21 @@ const Register = () => {
     }
 
     try {
-      const response = await fetch("https://cineflow-backend.onrender.com/api/users/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-          role,
-        }),
-      });
+      const response = await fetch(
+        "https://cineflow-backend.onrender.com/api/users/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            password,
+            role,
+          }),
+        }
+      );
 
       const data = await response.json();
 
