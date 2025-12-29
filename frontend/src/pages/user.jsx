@@ -111,7 +111,7 @@ useEffect(() => {
           fontWeight="bold"
           sx={{ mb: 4, color: "white", textAlign: "center" }}
         >
-          Upcoming Tailer
+          Next Big Release
         </Typography>
         <div className="w-full h-full flex justify-center items-center">
           <div
@@ -164,7 +164,7 @@ useEffect(() => {
   </div>
 </div>
 
-{/* ================= 2/4 ================= */}
+{/* 2/4 */}
 
 <div className="relative w-full p-6 md:p-8 bg-black">
   <Typography variant="h4" fontWeight="bold" sx={{ mb: 4, color: "white", textAlign: "center" }}>
@@ -197,7 +197,7 @@ useEffect(() => {
   </div>
 </div>
 
-{/* ================= 3/4 ================= */}
+{/* 3/4 */}
 
 <div className="relative w-full p-6 md:p-8 bg-black">
   <Typography variant="h4" fontWeight="bold" sx={{ mb: 4, color: "white", textAlign: "center" }}>
@@ -230,7 +230,7 @@ useEffect(() => {
   </div>
 </div>
 
-{/* ================= 4/4 ================= */}
+{/* 4/4 */}
 
 <div className="relative w-full p-6 md:p-8 bg-black">
   <Typography variant="h4" fontWeight="bold" sx={{ mb: 4, color: "white", textAlign: "center" }}>
