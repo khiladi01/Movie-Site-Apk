@@ -55,8 +55,7 @@ function User() {
             </Typography>
 
             <Typography variant="body1" sx={{ mb: 4, color: "gray" }}>
-              Discover movies, trailers, and stories crafted for true cinema
-              lovers.
+              Browse movies watch teasers and book tickets in one place CineFlow
             </Typography>
 
             <Stack
@@ -445,7 +444,7 @@ function User() {
             {/* Subtitle */}
             <Typography sx={{ color: "#aaa" }}>
               Subscribe to get notifications about upcoming movies, trailers,
-              and exclusive updates.
+              and exclusive updates
             </Typography>
 
             {/* Email + Button */}

@@ -46,7 +46,7 @@ function Admin() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // ➕ Add Movie
+  // Add Movie
   const handleAddMovie = async () => {
     if (!formData.title || !formData.poster) {
       alert("Title and Poster are required fields.");
@@ -161,7 +161,7 @@ function Admin() {
           CineFlow Admin Dashboard
         </Typography>
         <Typography sx={{ color: "#9ca3af", mb: 5, textAlign: "center" }}>
-          From frame to feeling Cineflow
+          Manage movies with add update delete and publish controls
         </Typography>
 
         {/* ADD MOVIE FORM */}
@@ -175,7 +175,7 @@ function Admin() {
           }}
         >
           <Typography sx={{ color: "#f9fafb", mb: 3 }} variant="h6">
-            🎞️ Add New Movie
+            Add New Movie
           </Typography>
 
           <Grid container spacing={2}>
