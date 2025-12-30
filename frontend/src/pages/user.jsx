@@ -1,10 +1,9 @@
 import { Button, Typography, Box, Stack, TextField } from "@mui/material";
 import { useState, useEffect } from "react";
-import clip from "../assets/video/tailer.mp4";
-import imgthree from "../assets/image/toxic.webp";
-import imgfour from "../assets/image/rajasaab.webp";
+import rajababuvideo from "../assets/video/rajababu.mp4";
 import bordervideo from "../assets/video/Border2.mp4";
 import ramayanavideo from "../assets/video/Ramayana.mp4";
+import toxicvideo from "../assets/video/Toxic.mp4";
 
 function User() {
   const [movies, setMovies] = useState([]);
@@ -120,31 +119,61 @@ function User() {
       </div>
 
       {/* tv section */}
-      <div className="relative w-full h-screen p-8 bg-black">
+      <div className="relative w-full h-screen bg-black flex flex-col items-center justify-center overflow-hidden">
+        {/* Ambient gradient glow */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#050505] to-black" />
+
+        {/* Film grain overlay */}
+        <div className="absolute inset-0 opacity-20 bg-[url('/grain.png')] pointer-events-none" />
+
+        {/* Section Title */}
         <Typography
-          variant="h4"
+          variant="h3"
           fontWeight="bold"
-          sx={{ mb: 4, color: "white", textAlign: "center" }}
+          sx={{
+            mb: 6,
+            color: "white",
+            textAlign: "center",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+          }}
         >
           Next Big Release
         </Typography>
-        <div className="w-full h-full flex justify-center items-center">
+
+        {/* TV Frame */}
+        <div className="h-screen relative w-[65%] h-[60%] rounded-xl overflow-hidden">
+          {/* Glow Border */}
+          <div className="absolute -inset-1 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 blur-lg opacity-40 animate-pulse" />
+
+          {/* TV Body */}
           <div
-            className="w-3/5 h-3/5 flex flex-col justify-center items-center overflow-hidden bg-gray-900 rounded-lg shadow-lg"
+            className="relative w-full h-full bg-[#0b0b0b] rounded-xl overflow-hidden"
             style={{
-              border: "10px solid #333",
-              boxShadow: "0 0 20px rgba(0, 0, 0, 0.5)",
+              border: "12px solid #1f1f1f",
+              boxShadow:
+                "0 30px 80px rgba(0,0,0,0.9), inset 0 0 40px rgba(0,0,0,0.8)",
             }}
           >
+            {/* Video */}
             <video
-              src={clip}
+              src={rajababuvideo}
               autoPlay
               loop
               muted
-              className="w-full h-full object-cover rounded-md"
+              playsInline
+              className="w-full h-full object-cover scale-[1.02]"
             />
+
+            {/* Vignette */}
+            <div className="absolute inset-0 shadow-[inset_0_0_120px_rgba(0,0,0,0.9)] pointer-events-none" />
           </div>
         </div>
+
+        {/* Sub text */}
+        <p className="mt-6 text-gray-400 tracking-widest text-sm uppercase">
+          Experience it first • Only in cinemas
+        </p>
       </div>
 
       {/* Upcoming section */}
@@ -282,9 +311,11 @@ function User() {
         <div className="min-h-screen w-full flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-24">
           {/* image */}
           <div className="w-full lg:w-[500px] shadow-lg shadow-red-400">
-            <img
-              src={imgthree}
-              alt="image"
+            <video
+              src={toxicvideo}
+              autoPlay
+              loop
+              muted
               className="w-full h-auto lg:h-[400px] rounded-lg"
               style={{
                 border: "10px solid #333",
@@ -367,9 +398,11 @@ function User() {
 
           {/* image */}
           <div className="w-full lg:w-[500px] shadow-lg shadow-red-400">
-            <img
-              src={imgfour}
-              alt="image"
+            <video
+              src={rajababuvideo}
+              autoPlay
+              loop
+              muted
               className="w-full h-auto lg:h-[400px] rounded-lg"
               style={{
                 border: "10px solid #333",
