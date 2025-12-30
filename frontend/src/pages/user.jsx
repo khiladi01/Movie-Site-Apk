@@ -1,5 +1,6 @@
 import { Button, Typography, Box, Stack, TextField } from "@mui/material";
 import { useState, useEffect } from "react";
+import dhuback from "../assets/video/dhuback.mp4"
 import rajababuvideo from "../assets/video/rajababu.mp4";
 import bordervideo from "../assets/video/Border2.mp4";
 import ramayanavideo from "../assets/video/Ramayana.mp4";
@@ -38,10 +39,13 @@ function User() {
       <div className="relative h-screen w-full overflow-hidden">
         {/* Background Video */}
 
-        <img
-          src="/movie.jpg"
-          alt="image"
-          className="absolute top-0 left-0 h-full w-full object-cover"
+        <video
+          src={dhuback}
+          autoPlay  
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
         />
 
         {/* Dark background */}
@@ -141,27 +145,26 @@ function User() {
         </Typography>
 
         {/* TV Frame */}
-        <div className="h-screen relative w-[65%] h-[60%] rounded-xl overflow-hidden">
+        <div className="h-screen relative w-[65%] rounded-xl overflow-hidden bg-black"> 
           {/* Glow Border */}
           <div className="absolute -inset-1 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 blur-lg opacity-40 animate-pulse" />
-
           {/* TV Body */}
           <div
-            className="relative w-full h-full bg-[#0b0b0b] rounded-xl overflow-hidden"
+            className="relative w-full h-full bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 rounded-xl overflow-hidden flex items-center justify-center"
             style={{
               border: "12px solid #1f1f1f",
               boxShadow:
                 "0 30px 80px rgba(0,0,0,0.9), inset 0 0 40px rgba(0,0,0,0.8)",
             }}
           >
-            {/* Video */}
+            {/* Back Video */}
             <video
               src={rajababuvideo}
               autoPlay
               loop
               muted
               playsInline
-              className="w-full h-full object-cover scale-[1.02]"
+              className="w-230 h-132 rounded-lg object-cover scale-[1.02]"
             />
 
             {/* Vignette */}
