@@ -1,10 +1,11 @@
 import { Button, Typography, Box, Stack, TextField } from "@mui/material";
 import { useState, useEffect } from "react";
 import clip from "../assets/video/tailer.mp4";
-import imgone from "../assets/image/border2.webp";
+// import imgone from "../assets/image/border2.webp";
 import imgtwo from "../assets/image/ramayana.webp";
 import imgthree from "../assets/image/toxic.webp";
 import imgfour from "../assets/image/rajasaab.webp";
+import bordervideo from "../assets/video/Border2.mp4";
 
 function User() {
   const [movies, setMovies] = useState([]);
@@ -167,9 +168,11 @@ function User() {
         <div className="min-h-screen w-full flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-24">
           {/* image */}
           <div className="w-full lg:w-[500px] shadow-lg shadow-red-400">
-            <img
-              src={imgone}
-              alt="image"
+            <video
+              src={bordervideo}
+              autoPlay
+              loop
+              muted
               className="w-full h-auto lg:h-[400px] rounded-lg"
               style={{
                 border: "10px solid #333",
