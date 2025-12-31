@@ -7,11 +7,18 @@ const Navbar = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
+  const handlers = () => {
+        alert("This page is currently in the building phase. Please check back soon.");
+  }
+
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem("token");
-        if (!token) return;
+        if (!token) {
+          setUser(null);
+          return;
+        }
 
         const response = await fetch(
           "https://cineflow-backend.onrender.com/api/users/profile",
@@ -25,9 +32,12 @@ const Navbar = () => {
         if (response.ok) {
           const data = await response.json();
           setUser(data);
+        } else {
+          setUser(null);
         }
       } catch (error) {
         console.error("Navbar user fetch error:", error);
+        setUser(null);
       }
     };
 
@@ -54,13 +64,13 @@ const Navbar = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/">About</Link>
+            <Link onClick={handlers} to="/">About</Link>
           </li>
           <li>
-            <Link to="/">Contact</Link>
+            <Link onClick={handlers} to="/">Contact</Link>
           </li>
           <li>
-            <Link to="/">TV</Link>
+            <Link onClick={handlers} to="/">TV</Link>
           </li>
 
           {user ? (
@@ -116,13 +126,13 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </li>
             <li onClick={() => setOpen(false)}>
-              <Link to="/">About</Link>
+              <Link onClick={handlers} to="/">About</Link>
             </li>
             <li onClick={() => setOpen(false)}>
-              <Link to="/">Contact</Link>
+              <Link onClick={handlers} to="/">Contact</Link>
             </li>
             <li onClick={() => setOpen(false)}>
-              <Link to="/">TV</Link>
+              <Link onClick={handlers} to="/">TV</Link>
             </li>
 
             {user ? (

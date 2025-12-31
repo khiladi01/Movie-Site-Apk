@@ -1,6 +1,6 @@
 import { Button, Typography, Box, Stack, TextField } from "@mui/material";
 import { useState, useEffect } from "react";
-import dhuback from "../assets/video/dhuback.mp4"
+import dhuback from "../assets/video/dhuback.mp4";
 import rajababuvideo from "../assets/video/rajababu.mp4";
 import bordervideo from "../assets/video/Border2.mp4";
 import ramayanavideo from "../assets/video/Ramayana.mp4";
@@ -33,6 +33,10 @@ function User() {
     fetchData();
   }, []);
 
+  const handlers = () => {
+    alert("Movie cannot be played yet. Coming soon");
+  }
+
   return (
     <>
       {/* hero section */}
@@ -41,7 +45,7 @@ function User() {
 
         <video
           src={dhuback}
-          autoPlay  
+          autoPlay
           loop
           muted
           playsInline
@@ -75,6 +79,12 @@ function User() {
                   color: "#000",
                   "&:hover": { backgroundColor: "#e5e5e5" },
                 }}
+                onClick={() => {
+                  const element = document.getElementById("movie-section");
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
               >
                 Explore Movies
               </Button>
@@ -90,6 +100,12 @@ function User() {
                     backgroundColor: "rgba(255,255,255,0.1)",
                   },
                 }}
+                onClick={() => {
+                  const element = document.getElementById("tv-section");
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
               >
                 Watch Trailer
               </Button>
@@ -99,8 +115,8 @@ function User() {
       </div>
 
       {/* movie section */}
-      <div className="relative w-full p-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div id="movie-section" className="relative w-full p-8 bg-black">
+        <div onClick={handlers} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {movies.map((movie, index) => (
             <div
               key={movie.id || index}
@@ -122,17 +138,18 @@ function User() {
       </div>
 
       {/* tv section */}
-      <div className="relative w-full h-screen bg-black flex flex-col items-center justify-center overflow-hidden">
+      <div id="tv-section" className="relative w-full h-screen bg-black flex flex-col items-center justify-center overflow-hidden">
         {/* Ambient gradient glow */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#050505] to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#050505] to-black z-0" />
 
         {/* Film grain overlay */}
-        <div className="absolute inset-0 opacity-20 bg-[url('/grain.png')] pointer-events-none" />
+        <div className="absolute inset-0 opacity-20 bg-[url('/grain.png')] pointer-events-none z-10" />
 
         {/* Section Title */}
         <Typography
           variant="h3"
           fontWeight="bold"
+          className="relative z-20"
           sx={{
             mb: 6,
             color: "white",
@@ -145,12 +162,13 @@ function User() {
         </Typography>
 
         {/* TV Frame */}
-        <div className="h-screen relative w-[65%] rounded-xl overflow-hidden bg-black"> 
+        <div className="relative z-20 h-screen w-[65%] rounded-xl overflow-hidden bg-black">
           {/* Glow Border */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 blur-lg opacity-40 animate-pulse" />
+          <div className="absolute -inset-1 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 blur-lg opacity-40 animate-pulse z-0" />
+
           {/* TV Body */}
           <div
-            className="relative w-full h-full bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 rounded-xl overflow-hidden flex items-center justify-center"
+            className="relative z-10 w-full h-full bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 rounded-xl overflow-hidden flex items-center justify-center"
             style={{
               border: "12px solid #1f1f1f",
               boxShadow:
@@ -168,17 +186,17 @@ function User() {
             />
 
             {/* Vignette */}
-            <div className="absolute inset-0 shadow-[inset_0_0_120px_rgba(0,0,0,0.9)] pointer-events-none" />
+            <div className="absolute inset-0 shadow-[inset_0_0_120px_rgba(0,0,0,0.9)] pointer-events-none z-20" />
           </div>
         </div>
 
         {/* Sub text */}
-        <p className="mt-6 text-gray-400 tracking-widest text-sm uppercase">
+        <p className="relative z-20 mt-6 text-gray-400 tracking-widest text-sm uppercase">
           Experience it first • Only in cinemas
         </p>
       </div>
 
-      {/* Upcoming section */}
+      {/* Upcoming movie section */}
       <div className="relative w-full p-6 md:p-8 bg-black">
         <Typography
           variant="h4"

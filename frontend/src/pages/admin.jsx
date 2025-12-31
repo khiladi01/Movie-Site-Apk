@@ -77,7 +77,7 @@ function Admin() {
           duration: "",
           poster: "",
         });
-        fetchMovies(); // Refresh the movie list
+        fetchMovies(); 
       } else {
         const errorData = await response.json();
         alert(errorData.message || "Failed to add movie.");

@@ -44,6 +44,9 @@ const Login = () => {
         alert("Login successful!");
         localStorage.setItem("token", data.token);
 
+        // Dispatch a custom event to notify navbar of login
+        window.dispatchEvent(new Event("loginSuccess"));
+
         // Debugging log for role
         console.log("User role:", data.role);
 
@@ -177,7 +180,7 @@ const Login = () => {
           textAlign="center"
           sx={{ mt: 3, color: "gray" }}
         >
-          Lights. Camera. Login.
+          Take your seat and enjoy the show🍿
         </Typography>
       </Paper>
     </Box>
