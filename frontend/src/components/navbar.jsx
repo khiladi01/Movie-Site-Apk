@@ -71,16 +71,10 @@ const Navbar = () => {
 
           {user ? (
             <>
-              <li className="hover:text-gray-300">
+            <li className="hover:text-gray-300">
                 <Link to="/profile" className="font-medium">
                   Hi, {user.name}
                 </Link>
-              </li>
-              <li
-                onClick={handleLogout}
-                className="cursor-pointer text-red-400 hover:text-red-500"
-              >
-                Logout
               </li>
             </>
           ) : (
@@ -134,7 +128,7 @@ const Navbar = () => {
             {user ? (
               <>
                 <li onClick={() => setOpen(false)}>
-                  <Link to="/profile">Hi, {user.name}</Link>
+                  <Link to="/login">Login</Link>
                 </li>
                 <li
                   onClick={() => {

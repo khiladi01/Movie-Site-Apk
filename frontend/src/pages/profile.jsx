@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Admin from "./admin";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -67,6 +68,7 @@ const Profile = () => {
   }
 
   return (
+    <>
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center px-4">
       <div className="w-full max-w-md backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-8 shadow-2xl text-white">
         {/* Header */}
@@ -102,6 +104,9 @@ const Profile = () => {
         </button>
       </div>
     </div>
+
+    <Admin />
+    </>
   );
 };
 
