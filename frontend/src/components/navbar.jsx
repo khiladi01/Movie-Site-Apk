@@ -7,10 +7,6 @@ const Navbar = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  const handlers = () => {
-        alert("This page is currently in the building phase. Please check back soon.");
-  }
-
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -64,13 +60,13 @@ const Navbar = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link onClick={handlers} to="/">About</Link>
+            <Link to="/about">About</Link>
           </li>
           <li>
-            <Link onClick={handlers} to="/">Contact</Link>
+            <Link to="/contact">Contact</Link>
           </li>
           <li>
-            <Link onClick={handlers} to="/">TV</Link>
+            <Link to="/tv">TV</Link>
           </li>
 
           {user ? (
@@ -126,13 +122,13 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </li>
             <li onClick={() => setOpen(false)}>
-              <Link onClick={handlers} to="/">About</Link>
+              <Link to="/about">About</Link>
             </li>
             <li onClick={() => setOpen(false)}>
-              <Link onClick={handlers} to="/">Contact</Link>
+              <Link to="/contact">Contact</Link>
             </li>
             <li onClick={() => setOpen(false)}>
-              <Link onClick={handlers} to="/">TV</Link>
+              <Link to="/tv">TV</Link>
             </li>
 
             {user ? (

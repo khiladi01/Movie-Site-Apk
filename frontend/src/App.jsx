@@ -7,6 +7,9 @@ import Register from './pages/registration.jsx'
 import Profile from './pages/profile.jsx'
 import User from './pages/user.jsx'
 import Admin from './pages/admin.jsx'
+import About from './pages/about.jsx'
+import Contact from './pages/contact.jsx'
+import TVPage from './pages/tv.jsx'
 
 function App() {
 
@@ -21,6 +24,9 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/user" element={<User />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/tv" element={<TVPage />} />
         </Routes>
 
     <Footer/>
