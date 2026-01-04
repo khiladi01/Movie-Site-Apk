@@ -7,6 +7,13 @@ The application focuses on **performance, scalability, and clean UI**, making it
 
 ---
 
+## 🔗 Links
+
+- **Clone the Project:** [GitHub Repository](https://github.com/khiladi01/Movie-Site-Apk)  
+- **Live Demo:** [Cineflow Live](https://cineflow-ten.vercel.app/#/)
+
+---
+
 ## 🚀 Features
 
 ### 👤 User
